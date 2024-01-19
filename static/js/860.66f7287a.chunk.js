@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkrental_cars=self.webpackChunkrental_cars||[]).push([[860],{860:function(e,r,n){n.r(r),n.d(r,{default:function(){return t}});var c=n(184),s=function(){return(0,c.jsxs)("div",{children:[(0,c.jsx)("h1",{children:"Welcome to Car Rental Service"}),(0,c.jsx)("h2",{children:"Our services:"})]})},t=function(){return(0,c.jsx)(s,{})}}}]);
-//# sourceMappingURL=860.66f7287a.chunk.js.map
