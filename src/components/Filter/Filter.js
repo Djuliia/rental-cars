@@ -1,49 +1,92 @@
-import { Field, Form, Formik } from 'formik';
+import { Formik } from 'formik';
 import carBrands from '../../data/makes.json';
 import pricePerHour from '../../data/price.json';
+import { BtnSearch, Label, StyledField, StyledForm } from './Filter.styled';
+import { useDispatch } from 'react-redux';
+import { setBrand, setMileageRange, setPrice } from '../../redux/filterSlice';
 
 export const Filter = () => {
-  const handleSubmit = () => {};
+  const dispatch = useDispatch();
 
-  // const customStyles = {
-  //   color: 'black',
-  // };
+  const handleSubmit = (values, { resetForm }) => {
+    dispatch(setBrand(values.brand));
+    dispatch(setPrice(values.price));
+    dispatch(setMileageRange({ from: values.from, to: values.to }));
+    resetForm();
+  };
+
   return (
     <Formik
       initialValues={{
         brand: '',
         price: '',
+        from: '',
+        to: '',
       }}
-      // validationSchema={formValidationSchema}
       onSubmit={handleSubmit}
     >
-      <Form>
-        <label htmlFor="brand">Car brand</label>
-        <Field id="brand" name="brand" as="select">
-          <option value="" label="Enter the text" />
-          {carBrands.map(brand => (
-            <option key={brand} value={brand}>
-              {brand}
-            </option>
-          ))}
-        </Field>
-        <label htmlFor="price">Price/ 1 hour</label>
-        <Field id="price" name="price" as="select">
-          <option value="" label="To $" />
-          {pricePerHour.map(price => (
-            <option key={price} value={price}>
-              {price}
-            </option>
-          ))}
-        </Field>
-        <label htmlFor="range">Сar mileage / km</label>
-        <div>
-          <Field type="text" id="from" name="from" placeholder="From" />
-          <Field type="text" id="to" name="to" placeholder="To" />
-        </div>
-
-        <button type="submit">Search</button>
-      </Form>
+      {({ setFieldValue }) => (
+        <StyledForm>
+          <Label>
+            Car brand
+            <StyledField
+              className="brand"
+              name="brand"
+              as="select"
+              onChange={e => {
+                setFieldValue('brand', e.target.value);
+              }}
+            >
+              <option value="default" hidden>
+                Enter brand
+              </option>
+              {carBrands.map(brand => (
+                <option key={brand} value={brand}>
+                  {brand}
+                </option>
+              ))}
+            </StyledField>
+          </Label>
+          <Label>
+            Price/ 1 hour
+            <StyledField
+              className="price"
+              name="price"
+              as="select"
+              onChange={e => {
+                setFieldValue('price', e.target.value);
+              }}
+            >
+              <option value="default" hidden>
+                To $
+              </option>
+              {pricePerHour.map(price => (
+                <option key={price} value={price}>
+                  {price}
+                </option>
+              ))}
+            </StyledField>
+          </Label>
+          <Label>
+            Сar mileage / km
+            <div>
+              <StyledField
+                type="text"
+                className="from"
+                name="from"
+                placeholder="From"
+              />
+              <StyledField
+                type="text"
+                className="to"
+                name="to"
+                placeholder="To"
+              />
+            </div>
+          </Label>
+          <BtnSearch type="submit">Search</BtnSearch>
+        </StyledForm>
+      )}
     </Formik>
   );
 };

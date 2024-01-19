@@ -6,5 +6,5 @@ export const Container = styled.div`
   justify-content: center;
   flex-direction: column;
   max-width: 1440px;
-  padding: 150px 128px;
+  padding: 50px 128px;
 `;

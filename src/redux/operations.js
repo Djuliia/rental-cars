@@ -29,20 +29,20 @@ export const loadMoreCars = createAsyncThunk(
   }
 );
 
-export const toggleFavorite = createAsyncThunk(
-  'cars/toggleFavorite',
-  async ({ carId, isFavorite }, thunkAPI) => {
-    try {
-      if (isFavorite) {
-        // Видалити з обраних
-        // Викликати API або реалізувати власну логіку
-      } else {
-        // Додати до обраних
-        // Викликати API або реалізувати власну логіку
-      }
-      return carId;
-    } catch (e) {
-      return thunkAPI.rejectWithValue(e.message);
-    }
-  }
-);
+// export const toggleFavorite = createAsyncThunk(
+//   'cars/toggleFavorite',
+//   async ({ carId, isFavorite }, thunkAPI) => {
+//     try {
+//       if (isFavorite) {
+//         // Видалити з обраних
+//         // Викликати API або реалізувати власну логіку
+//       } else {
+//         // Додати до обраних
+//         // Викликати API або реалізувати власну логіку
+//       }
+//       return carId;
+//     } catch (e) {
+//       return thunkAPI.rejectWithValue(e.message);
+//     }
+//   }
+// );

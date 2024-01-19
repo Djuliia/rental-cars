@@ -1,4 +1,4 @@
-import { Card } from 'components/Card/Card';
+import { Card } from 'components/CardModal/Card';
 import Modal from 'react-modal';
 import SpriteIcons from '../../images/sprite.svg';
 import { BtnClose } from './Modal.styled';

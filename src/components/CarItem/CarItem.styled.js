@@ -18,6 +18,7 @@ export const BtnAdd = styled.button`
   outline: none;
   transition: color 250ms linear;
   color: #000;
+
   svg {
     width: 24px;
     height: 24px;
@@ -45,6 +46,7 @@ export const BtnLearnMore = styled.button`
   padding: 12px;
   justify-content: center;
   align-items: center;
+  margin-top: 28px;
   border-radius: 12px;
   background: #3470ff;
   border: none;
@@ -56,5 +58,29 @@ export const BtnLearnMore = styled.button`
   &:hover,
   &:focus {
     background-color: #0b44cd;
+  }
+`;
+
+export const TitleWrap = styled.div`
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  margin-top: 14px;
+  margin-bottom: 8px;
+`;
+
+export const SpanTitle = styled.span`
+  color: #3470ff;
+`;
+
+export const Info = styled.span`
+  display: block;
+  color: rgba(18, 20, 23, 0.5);
+  font-size: 12px;
+  line-height: 1.5;
+  &:not(:last-child) {
+    margin-bottom: 4px;
   }
 `;

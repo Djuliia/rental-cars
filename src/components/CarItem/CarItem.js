@@ -1,6 +1,14 @@
 import { getCityFromAddress } from 'helpers';
 import SpriteIcons from '../../images/sprite.svg';
-import { BtnAdd, BtnLearnMore, Img, Item } from './CarItem.styled';
+import {
+  BtnAdd,
+  BtnLearnMore,
+  Img,
+  Item,
+  TitleWrap,
+  SpanTitle,
+  Info,
+} from './CarItem.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectFavoriteId } from '../../redux/selectors';
 import { addFavorite, removeFavorite } from '../../redux/favoriteSlice';
@@ -21,26 +29,24 @@ export const CarItem = ({ car, openModal }) => {
   return (
     <Item>
       <BtnAdd onClick={() => handleToggleFavorite(car)}>
-        <svg
-          width="24"
-          height="24"
-          fill={favoriteIdx.includes(car.id) ? '#3470FF' : 'none'}
-        >
+        <svg fill={favoriteIdx.includes(car.id) ? '#3470FF' : 'none'}>
           <use xlinkHref={`${SpriteIcons}#heart`} />
         </svg>
       </BtnAdd>
       <Img src={car.img} alt={car.make} />
       <div>
-        <p>
-          {car.make} <span>{car.model}</span>, {car.year}
-        </p>
-        <span> {car.rentalPrice}</span>
+        <TitleWrap>
+          <p>
+            {car.make} <SpanTitle>{car.model}</SpanTitle>, {car.year}
+          </p>
+          <span> {car.rentalPrice}</span>
+        </TitleWrap>
       </div>
       <div>
-        <span>{`${getCityFromAddress(car.address)} | Ukraine | ${
+        <Info>{`${getCityFromAddress(car.address)} | Ukraine | ${
           car.rentalCompany
-        }`}</span>
-        <span>{`${car.type} | ${car.make} | ${car.id} | ${car.functionalities[0]}`}</span>
+        }`}</Info>
+        <Info>{`${car.type} | ${car.make} | ${car.id}`}</Info>
       </div>
       <BtnLearnMore onClick={() => openModal(car)}>Learn more</BtnLearnMore>
     </Item>
