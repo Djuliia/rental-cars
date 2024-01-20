@@ -26,4 +26,18 @@ export const StyledLink = styled(Link)`
   }
 `;
 
-export const Logo = styled(Link)``;
+export const LogoText = styled.span`
+  color: #3470ff;
+  font-weight: 700;
+  font-size: 16px;
+`;
+
+export const Logo = styled(Link)`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &:is(:hover, :focus) > span {
+    color: #0b44cd;
+  }
+`;

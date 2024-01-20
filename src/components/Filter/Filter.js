@@ -4,6 +4,7 @@ import pricePerHour from '../../data/price.json';
 import { BtnSearch, Label, StyledField, StyledForm } from './Filter.styled';
 import { useDispatch } from 'react-redux';
 import { setBrand, setMileageRange, setPrice } from '../../redux/filterSlice';
+// import { getCars } from '../../redux/operations';
 
 export const Filter = () => {
   const dispatch = useDispatch();
@@ -12,6 +13,8 @@ export const Filter = () => {
     dispatch(setBrand(values.brand));
     dispatch(setPrice(values.price));
     dispatch(setMileageRange({ from: values.from, to: values.to }));
+    console.log(values);
+
     resetForm();
   };
 
@@ -74,13 +77,13 @@ export const Filter = () => {
                 type="text"
                 className="from"
                 name="from"
-                placeholder="From"
+                placeholder="From 1000"
               />
               <StyledField
                 type="text"
                 className="to"
                 name="to"
-                placeholder="To"
+                placeholder="To 40000"
               />
             </div>
           </Label>

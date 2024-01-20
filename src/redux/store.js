@@ -13,14 +13,8 @@ import { carsReducer } from './carsSlice';
 import { favoriteReducer } from './favoriteSlice';
 import { filterReducer } from './filterSlice';
 
-const favoritePersistConfig = {
+const persistConfig = {
   key: 'root',
-  storage,
-  whitelist: ['idx'],
-};
-
-const filterPersistConfig = {
-  key: 'filter',
   storage,
 };
 
@@ -36,8 +30,8 @@ const ignoredPersistenceActions = [
 export const store = configureStore({
   reducer: {
     cars: carsReducer,
-    filter: persistReducer(filterPersistConfig, filterReducer),
-    favorites: persistReducer(favoritePersistConfig, favoriteReducer),
+    filter: filterReducer,
+    favorites: persistReducer(persistConfig, favoriteReducer),
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({

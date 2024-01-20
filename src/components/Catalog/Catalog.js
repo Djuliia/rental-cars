@@ -1,12 +1,10 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getCars, loadMoreCars } from '../../redux/operations';
+import { loadMoreCars } from '../../redux/operations';
 import { filterCarsSelector, selectHasMore } from '../../redux/selectors';
-
 import { BtnLoadMore, CardList } from './Catalog.styled';
 import { CardModal } from 'components/Modal/Modal';
 import { CarItem } from 'components/CarItem/CarItem';
-import { Filter } from 'components/Filter/Filter';
 
 export const Catalog = () => {
   const dispatch = useDispatch();
@@ -17,10 +15,6 @@ export const Catalog = () => {
   const [page, setPage] = useState(1);
 
   const filteredCars = useSelector(filterCarsSelector);
-
-  useEffect(() => {
-    dispatch(getCars());
-  }, [dispatch]);
 
   const openModal = car => {
     setSelectedCar(car);
@@ -41,7 +35,6 @@ export const Catalog = () => {
 
   return (
     <div>
-      <Filter />
       <CardList>
         {filteredCars.map(car => (
           <CarItem key={car.id} car={car} openModal={openModal} />

@@ -10,28 +10,35 @@ import {
   Info,
 } from './CarItem.styled';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectFavoriteId } from '../../redux/selectors';
+import { selectFavorite } from '../../redux/selectors';
 import { addFavorite, removeFavorite } from '../../redux/favoriteSlice';
 
 export const CarItem = ({ car, openModal }) => {
   const dispatch = useDispatch();
-  const favoriteIdx = useSelector(selectFavoriteId);
 
-  const handleToggleFavorite = car => {
-    const cardId = car.id;
-    if (favoriteIdx.includes(cardId)) {
-      dispatch(removeFavorite(cardId));
+  const favorites = useSelector(selectFavorite);
+  const isFavorite = favorites.some(favorite => favorite.id === car.id);
+
+  const handleToggleFavorite = () => {
+    if (isFavorite) {
+      dispatch(removeFavorite(car.id));
     } else {
-      dispatch(addFavorite(cardId));
+      dispatch(addFavorite(car));
     }
   };
 
   return (
     <Item>
-      <BtnAdd onClick={() => handleToggleFavorite(car)}>
-        <svg fill={favoriteIdx.includes(car.id) ? '#3470FF' : 'none'}>
-          <use xlinkHref={`${SpriteIcons}#heart`} />
-        </svg>
+      <BtnAdd onClick={handleToggleFavorite}>
+        {isFavorite ? (
+          <svg width="24" height="24">
+            <use xlinkHref={`${SpriteIcons}#heart2`} />
+          </svg>
+        ) : (
+          <svg width="24" height="24">
+            <use xlinkHref={`${SpriteIcons}#heart1`} />
+          </svg>
+        )}
       </BtnAdd>
       <Img src={car.img} alt={car.make} />
       <div>
