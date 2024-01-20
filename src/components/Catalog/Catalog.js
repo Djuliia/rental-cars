@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { loadMoreCars } from '../../redux/operations';
-import { filterCarsSelector, selectHasMore } from '../../redux/selectors';
+import { selectCarsFull, selectHasMore } from '../../redux/selectors';
 import { BtnLoadMore, CardList } from './Catalog.styled';
 import { CardModal } from 'components/Modal/Modal';
 import { CarItem } from 'components/CarItem/CarItem';
@@ -14,7 +14,7 @@ export const Catalog = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [page, setPage] = useState(1);
 
-  const filteredCars = useSelector(filterCarsSelector);
+  const carsFull = useSelector(selectCarsFull);
 
   const openModal = car => {
     setSelectedCar(car);
@@ -36,7 +36,7 @@ export const Catalog = () => {
   return (
     <div>
       <CardList>
-        {filteredCars.map(car => (
+        {carsFull.map(car => (
           <CarItem key={car.id} car={car} openModal={openModal} />
         ))}
       </CardList>

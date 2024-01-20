@@ -32,6 +32,32 @@ export const loadMoreCars = createAsyncThunk(
   }
 );
 
+
+export const getCarsFull = createAsyncThunk(
+  'cars/getFull',
+  async (filters, thunkAPI) => {
+    try {
+      const transformedFilters = {
+        make: filters.brand,
+        rentalPrice: filters.price,
+        // mileage:
+        //   filters.from && filters.to
+        //     ? `${filters.from}-${filters.to}`
+        //     : undefined,
+    
+      };
+
+      const { data } = await axios.get(`/adverts`, {
+        params: transformedFilters,
+      });
+      return data;
+    } catch (e) {
+      toast.error('Something went wrong. Try again...');
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
+
 // export const getCars = createAsyncThunk(
 //   'cars/getAll',
 //   async (filters, thunkAPI) => {

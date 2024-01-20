@@ -2,7 +2,8 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCars, loadMoreCars } from '../redux/operations';
 import {
-  filterCarsSelector,
+  // filterCarsSelector,
+  selectCarsFull,
   selectFilter,
   selectHasMore,
 } from '../redux/selectors';
@@ -20,8 +21,9 @@ export const Test = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [page, setPage] = useState(1);
 
-  const filteredCars = useSelector(filterCarsSelector);
+
   const filters = useSelector(selectFilter);
+  const carsFull = useSelector(selectCarsFull);
 
   useEffect(() => {
     dispatch(getCars(filters));
@@ -49,7 +51,7 @@ export const Test = () => {
       <div>
         <Filter />
         <CardList>
-          {filteredCars.map(car => (
+          {carsFull.map(car => (
             <CarItem key={car.id} car={car} openModal={openModal} />
           ))}
         </CardList>

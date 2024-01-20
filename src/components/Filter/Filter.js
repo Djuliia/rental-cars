@@ -3,18 +3,24 @@ import carBrands from '../../data/makes.json';
 import pricePerHour from '../../data/price.json';
 import { BtnSearch, Label, StyledField, StyledForm } from './Filter.styled';
 import { useDispatch } from 'react-redux';
-import { setBrand, setMileageRange, setPrice } from '../../redux/filterSlice';
+import { resetFilters, setBrand, setMileageRange, setPrice } from '../../redux/filterSlice';
+import { getCarsFull } from '../../redux/operations';
 // import { getCars } from '../../redux/operations';
 
 export const Filter = () => {
   const dispatch = useDispatch();
 
   const handleSubmit = (values, { resetForm }) => {
-    dispatch(setBrand(values.brand));
+    if (values.brand === 'all' && values.price === 'all') {
+      dispatch(resetFilters());
+      dispatch(getCarsFull(values));
+      // resetForm();
+      return;
+    } 
+      dispatch(setBrand(values.brand));
     dispatch(setPrice(values.price));
     dispatch(setMileageRange({ from: values.from, to: values.to }));
-    console.log(values);
-
+ dispatch(getCarsFull(values));
     resetForm();
   };
 
@@ -37,9 +43,10 @@ export const Filter = () => {
               name="brand"
               as="select"
               onChange={e => {
-                setFieldValue('brand', e.target.value);
+                setFieldValue('brand', e.target.value === 'all' ? '' : e.target.value);
               }}
             >
+              <option value="all">All</option>
               <option value="default" hidden>
                 Enter brand
               </option>
@@ -57,9 +64,13 @@ export const Filter = () => {
               name="price"
               as="select"
               onChange={e => {
-                setFieldValue('price', e.target.value);
+                setFieldValue(
+                  'price',
+                  e.target.value === 'all' ? '' : e.target.value
+                );
               }}
             >
+              <option value="all">All</option>
               <option value="default" hidden>
                 To $
               </option>

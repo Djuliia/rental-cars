@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { getCarsFull } from './operations';
 
 const filterSlice = createSlice({
   name: 'filter',
@@ -7,6 +8,7 @@ const filterSlice = createSlice({
     price: '',
     from: '',
     to: '',
+    filteredCars: [],
   },
   reducers: {
     setBrand: (state, { payload }) => {
@@ -25,12 +27,19 @@ const filterSlice = createSlice({
         price: '',
         from: '',
         to: '',
+        filteredCars: [],
       };
     },
   },
+  extraReducers: builder => {
+    builder.addCase(getCarsFull.fulfilled, (state, action) => {
+
+      state.filteredCars = action.payload;
+    });
+  },
 });
 
-export const { setBrand, setPrice, setMileageRange, resetFilter } =
+export const { setBrand, setPrice, setMileageRange, resetFilter, resetFilters } =
   filterSlice.actions;
 
 export const filterReducer = filterSlice.reducer;

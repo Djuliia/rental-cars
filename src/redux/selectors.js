@@ -4,6 +4,7 @@ export const selectHasMore = state => state.cars.hasMore;
 export const selectFavorite = state => state.favorites.favorites;
 export const selectIsLoading = state => state.cars.isLoading;
 export const selectFilter = state => state.filter;
+export const selectCarsFull = state => state.filter.filteredCars;
 
 export const filterCarsSelector = createSelector(
   [selectCars, selectFilter],
