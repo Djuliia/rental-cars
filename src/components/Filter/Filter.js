@@ -3,25 +3,20 @@ import carBrands from '../../data/makes.json';
 import pricePerHour from '../../data/price.json';
 import { BtnSearch, Label, StyledField, StyledForm } from './Filter.styled';
 import { useDispatch } from 'react-redux';
-import { resetFilters, setBrand, setMileageRange, setPrice } from '../../redux/filterSlice';
-import { getCarsFull } from '../../redux/operations';
-// import { getCars } from '../../redux/operations';
+import { getCars, getCarsFiltered } from '../../redux/operations';
+import { resetFilters, setFilters } from '../../redux/filterSlice';
 
 export const Filter = () => {
   const dispatch = useDispatch();
 
   const handleSubmit = (values, { resetForm }) => {
-    if (values.brand === 'all' && values.price === 'all') {
+    if (!values.brand && !values.price && !values.from && !values.to) {
       dispatch(resetFilters());
-      dispatch(getCarsFull(values));
-      // resetForm();
+      dispatch(getCars());
       return;
-    } 
-      dispatch(setBrand(values.brand));
-    dispatch(setPrice(values.price));
-    dispatch(setMileageRange({ from: values.from, to: values.to }));
- dispatch(getCarsFull(values));
-    resetForm();
+    }
+    dispatch(setFilters(values));
+    dispatch(getCarsFiltered(values));
   };
 
   return (
@@ -43,13 +38,16 @@ export const Filter = () => {
               name="brand"
               as="select"
               onChange={e => {
-                setFieldValue('brand', e.target.value === 'all' ? '' : e.target.value);
+                setFieldValue(
+                  'brand',
+                  e.target.value === 'All' ? '' : e.target.value
+                );
               }}
             >
-              <option value="all">All</option>
               <option value="default" hidden>
                 Enter brand
               </option>
+              <option value="">All</option>
               {carBrands.map(brand => (
                 <option key={brand} value={brand}>
                   {brand}
@@ -66,14 +64,14 @@ export const Filter = () => {
               onChange={e => {
                 setFieldValue(
                   'price',
-                  e.target.value === 'all' ? '' : e.target.value
+                  e.target.value === 'All' ? '' : e.target.value
                 );
               }}
             >
-              <option value="all">All</option>
               <option value="default" hidden>
                 To $
               </option>
+              <option value="">All</option>
               {pricePerHour.map(price => (
                 <option key={price} value={price}>
                   {price}
@@ -88,13 +86,13 @@ export const Filter = () => {
                 type="text"
                 className="from"
                 name="from"
-                placeholder="From 1000"
+                placeholder="From"
               />
               <StyledField
                 type="text"
                 className="to"
                 name="to"
-                placeholder="To 40000"
+                placeholder="To"
               />
             </div>
           </Label>

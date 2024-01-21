@@ -38,9 +38,19 @@ export const StyledField = styled(Field)`
   font-weight: 500;
   line-height: 1.11;
   border-radius: 14px;
-  border: 1px solid rgba(18, 20, 23, 0.05);
-  background: #fff;
-  box-shadow: 0px 4px 36px 0px rgba(0, 0, 0, 0.02);
+  border: none;
+  cursor: pointer;
+
+  & option {
+    padding: 14px 8px 14px 18px;
+    border: 1px solid rgba(18, 20, 23, 0.05);
+    background: #fff;
+    box-shadow: 0px 4px 36px 0px rgba(0, 0, 0, 0.02);
+    color: rgba(18, 20, 23, 0.2);
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.25;
+  }
 
   &::placeholder {
     font-size: 18px;
@@ -49,19 +59,21 @@ export const StyledField = styled(Field)`
     color: #121417;
   }
 
-  &.brand {
-    padding: 14px 89px 14px 18px;
+  &.price {
+    width: 125px;
   }
 
   &.from {
     margin-right: 0;
-    padding: 14px 41px 14px 24px;
+    padding: 14px 24px;
     border-radius: 14px 0px 0px 14px;
     border-right: 1px solid rgba(138, 138, 137, 0.2);
+    max-width: 160px;
   }
 
   &.to {
-    padding: 14px 41px 14px 24px;
+    padding: 14px 24px;
+    max-width: 160px;
     border-radius: 0px 14px 14px 0px;
   }
   &:focus {
@@ -75,19 +87,3 @@ export const Label = styled.label`
   font-weight: 500;
   color: #8a8a89;
 `;
-
-// export const Option = styled.option`
-//   display: inline-flex;
-//   height: 272px;
-//   padding: 14px 8px 14px 18px;
-//   justify-content: flex-end;
-//   align-items: flex-start;
-//   gap: 112px;
-//   flex-shrink: 0;
-//   border-radius: 14px;
-//   border: 1px solid rgba(18, 20, 23, 0.05);
-
-//   background: #fff;
-
-//   box-shadow: 0px 4px 36px 0px rgba(0, 0, 0, 0.02);
-// `;

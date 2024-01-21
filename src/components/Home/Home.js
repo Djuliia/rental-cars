@@ -15,8 +15,15 @@ export const Home = () => {
         Welcome to Car Rental Service - Your Reliable Car Rental Partner in
         Ukraine
       </WelcomeHeader>
-      <h2>Why Choose us:</h2>
+      <img src={carImg} alt="car"></img>
 
+      <ConclusionParagraph>
+        Explore Ukraine with confidence and convenience by choosing our company
+        for your car rental needs.
+        <br />
+        Book your car today and embark on a memorable journey!
+      </ConclusionParagraph>
+      <h2>Why Choose us:</h2>
       <FeatureList>
         <FeatureItem>
           <Span>Diverse Fleet:</Span> We provide a diverse fleet of vehicles to
@@ -49,15 +56,6 @@ export const Home = () => {
           and hassle-free.
         </FeatureItem>
       </FeatureList>
-
-      <img src={carImg} alt="car"></img>
-
-      <ConclusionParagraph>
-        Explore Ukraine with confidence and convenience by choosing our company
-        for your car rental needs.
-        <br />
-        Book your car today and embark on a memorable journey!
-      </ConclusionParagraph>
     </HomeContainer>
   );
 };

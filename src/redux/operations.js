@@ -26,25 +26,20 @@ export const loadMoreCars = createAsyncThunk(
       const { data } = await axios.get(`/adverts?page=${page}&limit=${limit}`);
       return data;
     } catch (e) {
-      toast.error('Something went wrong. Try again...');
+      toast.error('Something went wrong. Try again...', e);
       return thunkAPI.rejectWithValue(e.message);
     }
   }
 );
 
-
-export const getCarsFull = createAsyncThunk(
+export const getCarsFiltered = createAsyncThunk(
   'cars/getFull',
   async (filters, thunkAPI) => {
     try {
       const transformedFilters = {
         make: filters.brand,
         rentalPrice: filters.price,
-        // mileage:
-        //   filters.from && filters.to
-        //     ? `${filters.from}-${filters.to}`
-        //     : undefined,
-    
+        mileage: filters.from,
       };
 
       const { data } = await axios.get(`/adverts`, {
@@ -52,43 +47,8 @@ export const getCarsFull = createAsyncThunk(
       });
       return data;
     } catch (e) {
-      toast.error('Something went wrong. Try again...');
+      toast.error('No results found for your request');
       return thunkAPI.rejectWithValue(e.message);
     }
   }
 );
-
-// export const getCars = createAsyncThunk(
-//   'cars/getAll',
-//   async (filters, thunkAPI) => {
-//     try {
-//       const { data } = await axios.get(
-//         `/adverts?${new URLSearchParams(filters)}`
-//       );
-//       return data;
-//     } catch (e) {
-//       toast.error('Something went wrong. Try again...');
-//       return thunkAPI.rejectWithValue(e.message);
-//     }
-//   }
-// );
-
-// export const loadMoreCars = createAsyncThunk(
-//   'cars/loadMore',
-//   async ({ page, limit }, thunkAPI) => {
-//     try {
-//       const params = new URLSearchParams({
-//         page,
-//         limit,
-//       });
-
-//       const { data } = await axios.get(`/adverts?${params}`);
-//       return data;
-//     } catch (e) {
-//       toast.error('Something went wrong. Try again...');
-//       return thunkAPI.rejectWithValue(e.message);
-//     }
-//   }
-// );
-
-

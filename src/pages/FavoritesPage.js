@@ -1,10 +1,12 @@
 import { Favorites } from 'components/Favorites/Favorites';
-import { Loader } from 'components/Loader';
+import { CarLoader } from 'components/Loader';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCars } from '../redux/operations';
 import { selectFavorite, selectIsLoading } from '../redux/selectors';
 import { StyledLink, Text } from 'components/Favorites/Favorites.styled';
+import carImg from '../images/choose-your-car.jpg';
+
 
 const FavoritesPage = () => {
   const dispatch = useDispatch();
@@ -17,7 +19,7 @@ const FavoritesPage = () => {
 
   return (
     <>
-      {isLoading && <Loader />}
+      {isLoading && <CarLoader />}
       {favorites.length > 0 ? (
         <Favorites />
       ) : (
@@ -26,6 +28,9 @@ const FavoritesPage = () => {
             No cars added yet. Go to the&nbsp;
             <StyledLink to="/catalog">catalog</StyledLink>
           </Text>
+          <div style={{ height: '75vh', overflow: 'hidden' }}>
+            <img src={carImg} alt="car" />
+          </div>
         </>
       )}
     </>

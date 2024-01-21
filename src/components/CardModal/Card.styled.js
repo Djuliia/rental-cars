@@ -24,6 +24,7 @@ export const Img = styled.img`
   margin: 0 auto;
   border-radius: 14px;
   background: #f3f3f2;
+  width: 461px;
 `;
 
 export const Title = styled.h2`

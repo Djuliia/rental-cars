@@ -1,4 +1,4 @@
-import { Loader } from 'components/Loader';
+import { CarLoader } from 'components/Loader';
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 import { Container } from './Layout.styled';
@@ -8,7 +8,7 @@ export const Layout = () => {
   return (
     <Container>
       <Header />
-      <Suspense fallback={<Loader />}>
+      <Suspense fallback={<CarLoader />}>
         <Outlet />
       </Suspense>
     </Container>

@@ -6,18 +6,15 @@ export const HomeContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   text-align: center;
-  gap: 32px;
+  gap: 24px;
 `;
 
 export const WelcomeHeader = styled.h1`
-  color: #333;
   font-size: 32px;
   font-weight: 800;
 `;
 
-export const FeatureList = styled.ul`
-  /* margin-bottom: 32px; */
-`;
+export const FeatureList = styled.ul``;
 export const FeatureItem = styled.li`
   font-size: 16px;
   margin-bottom: 10px;
@@ -27,10 +24,9 @@ export const FeatureItem = styled.li`
 
 export const ConclusionParagraph = styled.p`
   position: absolute;
-  top: 450px;
+  top: 170px;
   left: 100px;
   font-size: 18px;
-  margin-top: 50px;
   text-align: center;
   font-weight: 700;
   max-width: 350px;

@@ -1,45 +1,53 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getCarsFull } from './operations';
+import { getCarsFiltered } from './operations';
 
 const filterSlice = createSlice({
   name: 'filter',
   initialState: {
-    brand: '',
-    price: '',
-    from: '',
-    to: '',
+    filters: {
+      brand: '',
+      price: '',
+      from: '',
+      to: '',
+    },
     filteredCars: [],
+    isError: false,
+    isLoading: false,
   },
   reducers: {
-    setBrand: (state, { payload }) => {
-      state.brand = payload;
+    setFilters: (state, { payload }) => {
+      state.filters = payload;
     },
-    setPrice: (state, { payload }) => {
-      state.price = payload;
-    },
-    setMileageRange: (state, { payload }) => {
-      state.from = payload.from;
-      state.to = payload.to;
-    },
-    resetFilter: state => {
+    resetFilters: state => {
       return {
-        brand: '',
-        price: '',
-        from: '',
-        to: '',
+        filters: {
+          brand: '',
+          price: '',
+          from: '',
+          to: '',
+        },
         filteredCars: [],
+        isError: false,
+        isLoading: false,
       };
     },
   },
   extraReducers: builder => {
-    builder.addCase(getCarsFull.fulfilled, (state, action) => {
-
-      state.filteredCars = action.payload;
-    });
+    builder
+      .addCase(getCarsFiltered.pending, state => {
+        state.isLoading = true;
+        state.isError = false;
+      })
+      .addCase(getCarsFiltered.fulfilled, (state, action) => {
+        state.filteredCars = action.payload;
+        state.isLoading = false;
+      })
+      .addCase(getCarsFiltered.rejected, state => {
+        state.isError = true;
+        state.isLoading = false;
+      });
   },
 });
 
-export const { setBrand, setPrice, setMileageRange, resetFilter, resetFilters } =
-  filterSlice.actions;
-
+export const { setFilters, resetFilters } = filterSlice.actions;
 export const filterReducer = filterSlice.reducer;

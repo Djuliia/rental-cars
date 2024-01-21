@@ -12,7 +12,7 @@ import {
 import { getCityFromAddress } from 'helpers';
 
 export const Card = ({ car }) => {
-  console.log(car);
+
   const conditions = car.rentalConditions.split('\n');
   return (
     <div>

@@ -1,6 +1,6 @@
 import { Card } from 'components/CardModal/Card';
 import Modal from 'react-modal';
-import SpriteIcons from '../../images/sprite.svg';
+import spriteIcons from '../../images/sprite.svg';
 import { BtnClose } from './Modal.styled';
 
 const customStyles = {
@@ -13,7 +13,6 @@ const customStyles = {
     transform: 'translate(-50%, -50%)',
     zIndex: '1300',
     padding: '40px',
-
     borderRadius: '24px',
     width: '541px',
     height: '752px',
@@ -30,7 +29,7 @@ export const CardModal = ({ isOpen, onRequestClose, car }) => {
       <div>
         <BtnClose type="button" onClick={onRequestClose}>
           <svg width="24" height="24" stroke="#121417" fill="none">
-            <use xlinkHref={`${SpriteIcons}#x`} />
+            <use xlinkHref={`${spriteIcons}#x`} />
           </svg>
         </BtnClose>
         <Card car={car} />
