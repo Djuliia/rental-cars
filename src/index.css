@@ -41,3 +41,22 @@ button {
   padding: 0;
   margin: 0;
 }
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(18, 20, 23, 0.05);
+  width: 3px;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #9ebbff;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(18, 20, 23, 0.05);
+}
