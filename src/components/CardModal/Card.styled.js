@@ -16,6 +16,10 @@ export const BtnRental = styled(Link)`
   font-weight: 600;
   line-height: 1.43;
   cursor: pointer;
+  &:hover,
+  &:focus {
+    background-color: #0b44cd;
+  }
 `;
 
 export const Container = styled.div``;

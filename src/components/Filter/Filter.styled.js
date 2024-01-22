@@ -39,7 +39,6 @@ export const StyledField = styled(Field)`
   line-height: 1.11;
   border-radius: 14px;
   border: none;
-  cursor: pointer;
 
   & option {
     padding: 14px 8px 14px 18px;
@@ -57,6 +56,10 @@ export const StyledField = styled(Field)`
     font-weight: 500;
     line-height: 1.11;
     color: #121417;
+  }
+
+  &:is(:hover, :focus) {
+    cursor: pointer;
   }
 
   &.price {

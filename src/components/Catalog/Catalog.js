@@ -17,7 +17,9 @@ export const Catalog = () => {
   const carsFiltered = useSelector(selectCarsFiltered);
 
   const handleLoadMore = () => {
-    dispatch(loadMoreCars({ page: cars.length / 12 + 1, limit: 12 }));
+    dispatch(
+      loadMoreCars({ page: Math.ceil(cars.length / 12) + 1, limit: 12 })
+    );
   };
 
   return (
