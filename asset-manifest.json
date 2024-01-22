@@ -1,10 +1,10 @@
 {
   "files": {
     "main.css": "/rental-cars/static/css/main.f7655661.css",
-    "main.js": "/rental-cars/static/js/main.27286f94.js",
+    "main.js": "/rental-cars/static/js/main.29cfad52.js",
     "static/js/429.44b6e937.chunk.js": "/rental-cars/static/js/429.44b6e937.chunk.js",
-    "static/js/802.de5a409d.chunk.js": "/rental-cars/static/js/802.de5a409d.chunk.js",
-    "static/js/394.b16b8e51.chunk.js": "/rental-cars/static/js/394.b16b8e51.chunk.js",
+    "static/js/802.b4868b33.chunk.js": "/rental-cars/static/js/802.b4868b33.chunk.js",
+    "static/js/394.d9b07064.chunk.js": "/rental-cars/static/js/394.d9b07064.chunk.js",
     "static/js/948.613ebb60.chunk.js": "/rental-cars/static/js/948.613ebb60.chunk.js",
     "static/js/705.81b4d70c.chunk.js": "/rental-cars/static/js/705.81b4d70c.chunk.js",
     "static/media/choose-your-car.jpg": "/rental-cars/static/media/choose-your-car.e4f5887c541fede8b23c.jpg",
@@ -13,15 +13,15 @@
     "static/media/logo.svg": "/rental-cars/static/media/logo.ad9e6f4cf62ea5a2cb7073b15d8dc916.svg",
     "index.html": "/rental-cars/index.html",
     "main.f7655661.css.map": "/rental-cars/static/css/main.f7655661.css.map",
-    "main.27286f94.js.map": "/rental-cars/static/js/main.27286f94.js.map",
+    "main.29cfad52.js.map": "/rental-cars/static/js/main.29cfad52.js.map",
     "429.44b6e937.chunk.js.map": "/rental-cars/static/js/429.44b6e937.chunk.js.map",
-    "802.de5a409d.chunk.js.map": "/rental-cars/static/js/802.de5a409d.chunk.js.map",
-    "394.b16b8e51.chunk.js.map": "/rental-cars/static/js/394.b16b8e51.chunk.js.map",
+    "802.b4868b33.chunk.js.map": "/rental-cars/static/js/802.b4868b33.chunk.js.map",
+    "394.d9b07064.chunk.js.map": "/rental-cars/static/js/394.d9b07064.chunk.js.map",
     "948.613ebb60.chunk.js.map": "/rental-cars/static/js/948.613ebb60.chunk.js.map",
     "705.81b4d70c.chunk.js.map": "/rental-cars/static/js/705.81b4d70c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.f7655661.css",
-    "static/js/main.27286f94.js"
+    "static/js/main.29cfad52.js"
   ]
 }
