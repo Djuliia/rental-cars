@@ -14,6 +14,7 @@ import { selectFavorite } from '../../redux/selectors';
 import { addFavorite, removeFavorite } from '../../redux/favoriteSlice';
 import { useState } from 'react';
 import { CardModal } from 'components/Modal/Modal';
+import emptyImg from '../../images/car_no_image.jpg';
 
 export const CarItem = ({ car }) => {
   const dispatch = useDispatch();
@@ -58,7 +59,7 @@ export const CarItem = ({ car }) => {
             </svg>
           )}
         </BtnAdd>
-        <Img src={car.img} alt={car.make} />
+        <Img src={car.img ? car.img : emptyImg} alt={car.make} />
         <div>
           <TitleWrap>
             <p>

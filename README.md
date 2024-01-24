@@ -1,23 +1,37 @@
-Car Rental Application
-This project is a React application for a car rental company located in Ukraine. The application comprises three pages:
+## Car Rental Application
 
-Home Page: Provides a general overview of the services.
+This project is a React application for a car rental company located in Ukraine.
+The application comprises three pages:
 
-Catalog Page: Displays a catalog of cars with various characteristics. Users can filter cars by brand, hourly rental cost, and mileage.
+[Home Page](https://djuliia.github.io/rental-cars): Provides a general overview
+of the services. [Catalog Page](https://djuliia.github.io/rental-cars/catalog):
+Displays a catalog of cars with various characteristics. Users can filter cars
+by brand, hourly rental cost, and mileage.
+[Favorites Page](https://djuliia.github.io/rental-cars/favorites): Presents
+advertisements that users have added to their favorites list.
 
-Favorites Page: Presents advertisements that users have added to their favorites list.
+## Technical Specifications
 
-Technical Specifications
-Advertisement Card
-Displays 12 advertisements on the catalog page initially, with additional ones loaded upon button click.
-Advertisements are added to the favorites list when the heart-shaped button is clicked.
-The favorites list remains unchanged after refreshing the page.
-Advertisements are removed from the favorites list upon a second click on the heart-shaped button.
-Opens a modal window with additional information about the car and its rental conditions when the "Learn More" button is clicked.
-The modal window closes when clicking the close button, clicking on the backdrop, or pressing the Esc key.
-"Rental Car" Button
-Allows users to contact the company at the phone number +380730000000.
-Implementation Details
-Utilizes Redux for state management.
-Utilizes the Axios library for making requests.
-Backend implementation for pagination.
+Advertisement Card Displays 12 advertisements on the catalog page initially,
+with additional ones loaded upon button click. Advertisements are added to the
+favorites list when the heart-shaped button is clicked. The favorites list
+remains unchanged after refreshing the page. Advertisements are removed from the
+favorites list upon a second click on the heart-shaped button. Opens a modal
+window with additional information about the car and its rental conditions when
+the "Learn More" button is clicked. The modal window closes when clicking the
+close button, clicking on the backdrop, or pressing the Esc key. "Rental Car"
+Button Allows users to contact the company at the phone number +380730000000.
+
+## Implementation Details
+
+- Utilizes Redux for state management.
+- Utilizes the Axios library for making requests.
+- Backend was created using Mockapi.io
+  (https://mockapi.io/projects/651c6054194f77f2a5afc37a/)
+
+## Getting Started
+
+- Clone the repository: https://github.com/Djuliia/rental-cars.git
+- Install the dependencies: npm install
+- Start the development server: npm start
+- Open: https://djuliia.github.io/rental-cars
