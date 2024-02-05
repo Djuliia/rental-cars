@@ -6,6 +6,10 @@ export const StyledHeader = styled.header`
   justify-content: space-between;
   align-items: center;
   margin-bottom: 50px;
+
+  @media screen and (max-width: 430px) {
+    flex-direction: column;
+  }
 `;
 
 export const List = styled.div`
@@ -39,5 +43,11 @@ export const Logo = styled(Link)`
 
   &:is(:hover, :focus) > span {
     color: #0b44cd;
+  }
+
+  @media screen and (max-width: 430px) {
+    flex-direction: row;
+    gap: 12px;
+    margin-bottom: 24px;
   }
 `;

@@ -4,7 +4,13 @@ export const Item = styled.li`
   position: relative;
   display: flex;
   flex-direction: column;
-  flex-basis: calc((100% - 3 * 29px) / 4);
+
+  @media screen and (min-width: 768px) {
+  }
+
+  @media screen and (min-width: 1440px) {
+    flex-basis: calc((100% - 3 * 29px) / 4);
+  }
 `;
 
 export const BtnAdd = styled.button`

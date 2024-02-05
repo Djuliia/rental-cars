@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 export const StyledForm = styled(Form)`
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: end;
   margin-bottom: 50px;
@@ -25,6 +26,10 @@ export const BtnSearch = styled.button`
   &:hover,
   &:focus {
     background-color: #0b44cd;
+  }
+
+  @media screen and (max-width: 767px) {
+    margin-top: 24px;
   }
 `;
 
@@ -71,13 +76,21 @@ export const StyledField = styled(Field)`
     padding: 14px 24px;
     border-radius: 14px 0px 0px 14px;
     border-right: 1px solid rgba(138, 138, 137, 0.2);
-    max-width: 160px;
+    max-width: 100px;
+
+    @media screen and (min-width: 768px) {
+      max-width: 160px;
+    }
   }
 
   &.to {
     padding: 14px 24px;
-    max-width: 160px;
+    max-width: 100px;
     border-radius: 0px 14px 14px 0px;
+
+    @media screen and (min-width: 768px) {
+      max-width: 160px;
+    }
   }
   &:focus {
     caret-color: #121417;

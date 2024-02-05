@@ -15,24 +15,29 @@ export const WelcomeHeader = styled.h1`
 `;
 
 export const FeatureList = styled.ul``;
+
 export const FeatureItem = styled.li`
   font-size: 16px;
   margin-bottom: 10px;
   text-align: start;
-  margin-left: 100px;
 `;
 
 export const ConclusionParagraph = styled.p`
-  position: absolute;
-  top: 170px;
-  left: 100px;
-  font-size: 18px;
+  font-size: 14px;
   text-align: center;
   font-weight: 700;
   max-width: 350px;
-  line-height: 2.5;
+  line-height: 1.5;
   color: #3470ff;
   text-align: start;
+
+  @media screen and (min-width: 768px) {
+    position: absolute;
+    top: 170px;
+    left: 100px;
+    line-height: 2.5;
+    font-size: 18px;
+  }
 `;
 
 export const Span = styled.span`

@@ -14,8 +14,7 @@ const customStyles = {
     zIndex: '1300',
     padding: '40px',
     borderRadius: '24px',
-    width: '541px',
-    height: '752px',
+    maxWidth: '541px',
   },
   overlay: {
     backgroundColor: 'rgba(0, 0, 0, 0.80)',
