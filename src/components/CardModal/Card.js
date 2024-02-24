@@ -12,10 +12,9 @@ import {
 import { getCityFromAddress } from 'helpers';
 
 export const Card = ({ car }) => {
-
   const conditions = car.rentalConditions.split('\n');
   return (
-    <div>
+    <div style={{ maxHeight: '90vh', overflowY: 'auto' }}>
       <Img src={car.img} alt={`${car.make} ${car.model}`} />
       <Title>
         {car.make} <SpanTitle>{car.model}</SpanTitle>, {car.year}
